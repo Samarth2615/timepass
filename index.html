@@ -3,49 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEE Advanced Results</title>
+    <title>JEE Advanced Result Viewer</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="login-box">
-            <h1>JEE Advanced Result Viewer</h1>
+            <h1>JEE Advanced Result</h1>
             <form id="loginForm">
-                <div class="form-group">
-                    <label for="appNumber">Application Number:</label>
-                    <input type="text" id="appNumber" name="appNumber" required>
+                <div class="input-group">
+                    <label for="appNo">Enter Application Number:</label>
+                    <input type="text" id="appNo" name="appNo" placeholder="JEE Mains or Advanced App No" required>
                 </div>
-                <button type="submit">View Results</button>
+                <button type="submit">View Result</button>
             </form>
         </div>
 
-        <div id="resultContainer" class="hidden">
+        <div class="result-container" id="resultContainer" style="display: none;">
             <div class="candidate-info">
-                <div class="candidate-details">
+                <div class="photo-container">
+                    <img id="candidatePhoto" src="" alt="Candidate Photo">
+                </div>
+                <div class="details">
                     <h2 id="candidateName"></h2>
                     <p><strong>Father's Name:</strong> <span id="fatherName"></span></p>
                     <p><strong>Mother's Name:</strong> <span id="motherName"></span></p>
-                </div>
-                <div class="candidate-photo">
-                    <img id="studentPhoto" src="" alt="Candidate Photo">
+                    <p><strong>JEE Mains App No:</strong> <span id="mainsAppNo"></span></p>
+                    <p><strong>JEE Advanced App No:</strong> <span id="advancedAppNo"></span></p>
                 </div>
             </div>
 
             <div class="result-section">
-                <h3>JEE Advanced Result</h3>
-                <img id="resultImage" src="" alt="Result" class="result-image">
-            </div>
-
-            <div class="response-sheets">
-                <h3>Response Sheets</h3>
-                <div class="sheet-container">
-                    <div class="sheet-box">
-                        <h4>Paper 1</h4>
-                        <iframe id="p1Frame" src="" frameborder="0"></iframe>
-                    </div>
-                    <div class="sheet-box">
-                        <h4>Paper 2</h4>
-                        <iframe id="p2Frame" src="" frameborder="0"></iframe>
+                <h3>Your Result</h3>
+                <img id="resultImage" src="" alt="Result Image" class="result-image">
+                
+                <div class="response-sheets">
+                    <h3>Response Sheets</h3>
+                    <div class="sheet-container">
+                        <div class="sheet-box">
+                            <h4>Paper 1</h4>
+                            <iframe id="p1Sheet" class="response-iframe"></iframe>
+                        </div>
+                        <div class="sheet-box">
+                            <h4>Paper 2</h4>
+                            <iframe id="p2Sheet" class="response-iframe"></iframe>
+                        </div>
                     </div>
                 </div>
             </div>
