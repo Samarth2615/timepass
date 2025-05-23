@@ -1,135 +1,185 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f7fa;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f5f7fa;
     color: #333;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
 .login-box {
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
     margin: 50px auto;
     max-width: 500px;
     text-align: center;
 }
 
-h1 {
+.login-box h1 {
     color: #2c3e50;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: 600;
 }
 
-.form-group {
+.input-group {
     margin-bottom: 20px;
     text-align: left;
 }
 
-label {
+.input-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
 }
 
-input {
+.input-group input {
     width: 100%;
-    padding: 10px;
+    padding: 12px 15px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
     font-size: 16px;
+    transition: border 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #3498db;
+    outline: none;
 }
 
 button {
     background-color: #3498db;
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
+    padding: 12px 25px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: 500;
     transition: background-color 0.3s;
+    width: 100%;
 }
 
 button:hover {
     background-color: #2980b9;
 }
 
-.hidden {
-    display: none;
+.result-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-top: 30px;
 }
 
 .candidate-info {
     display: flex;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
 }
 
-.candidate-details {
-    flex: 2;
+.photo-container {
+    flex: 0 0 200px;
 }
 
-.candidate-photo {
+.photo-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.details {
     flex: 1;
-    text-align: center;
+    min-width: 300px;
 }
 
-.candidate-photo img {
-    max-width: 150px;
-    max-height: 200px;
-    border-radius: 4px;
+.details h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.details p {
+    margin-bottom: 10px;
+    color: #555;
 }
 
 .result-section {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.result-section h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 600;
 }
 
 .result-image {
     max-width: 100%;
-    display: block;
-    margin: 0 auto;
+    height: auto;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin-bottom: 30px;
 }
 
-.response-sheets {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.response-sheets h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
 .sheet-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
-    margin-top: 15px;
 }
 
 .sheet-box {
     flex: 1;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 10px;
+    min-width: 300px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 15px;
 }
 
 .sheet-box h4 {
-    margin-top: 0;
+    color: #2c3e50;
+    margin-bottom: 10px;
     text-align: center;
 }
 
-.sheet-box iframe {
+.response-iframe {
     width: 100%;
-    height: 400px;
-    background: #f9f9f9;
+    height: 500px;
+    border: none;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .candidate-info {
+        flex-direction: column;
+    }
+    
+    .photo-container {
+        margin: 0 auto;
+    }
+    
+    .sheet-box {
+        min-width: 100%;
+    }
 }
