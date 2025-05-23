@@ -10,27 +10,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Load CSV data
+    // CSV data directly in the script
+    const csvData = `JEE MAINS	JEE ADVANCED	NAME	FATHER NAME	MOTHER NAME	P1	P2
+250310762047	K42221131120	AARADHANA	JAI KANWAR	POONAM DEVI	https://cdn3.digialm.com//per/g26/pub/32044/touchstone/AssessmentQPHTMLMode1//32044O251/32044O251S1D8087/17477405621378218/252007062_32044O251S1D8087E1.html	https://cdn3.digialm.com//per/g26/pub/32044/touchstone/AssessmentQPHTMLMode1//32044O252/32044O252S2D7499/17477450692307889/252007062_32044O252S2D7499E1.html
+ADD_MORE_ROWS_HERE`;
+
+    // Parse CSV data
     let studentData = [];
+    const lines = csvData.split('\n');
+    const headers = lines[0].trim().split('\t');
     
-    fetch('jee.csv')
-        .then(response => response.text())
-        .then(data => {
-            const lines = data.split('\n');
-            const headers = lines[0].split('\t');
-            
-            for (let i = 1; i < lines.length; i++) {
-                const currentLine = lines[i].split('\t');
-                if (currentLine.length === headers.length) {
-                    let student = {};
-                    for (let j = 0; j < headers.length; j++) {
-                        student[headers[j].trim()] = currentLine[j].trim();
-                    }
-                    studentData.push(student);
-                }
+    for (let i = 1; i < lines.length; i++) {
+        const currentLine = lines[i].trim().split('\t');
+        if (currentLine.length === headers.length) {
+            let student = {};
+            for (let j = 0; j < headers.length; j++) {
+                student[headers[j].trim()] = currentLine[j].trim();
             }
-        })
-        .catch(error => console.error('Error loading CSV:', error));
+            studentData.push(student);
+        }
+    }
 
     // Handle login form submission
     const loginForm = document.getElementById('loginForm');
@@ -70,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         photoImg.src = `${student['JEE MAINS']}.jpg`;
         photoImg.onerror = function() {
             this.src = 'placeholder.jpg';
+            this.alt = 'Photo not available';
         };
         
         // Set result image
@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resultImg.src = `${student['JEE ADVANCED']}.jpg`;
         resultImg.onerror = function() {
             this.src = 'placeholder.jpg';
+            this.alt = 'Result not available';
         };
         
         // Set response sheets
