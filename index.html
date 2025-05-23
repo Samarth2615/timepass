@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE Advanced Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>JEE Advanced Result Viewer</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="appNumber">Application Number:</label>
+                    <input type="text" id="appNumber" name="appNumber" required>
+                </div>
+                <button type="submit">View Results</button>
+            </form>
+        </div>
+
+        <div id="resultContainer" class="hidden">
+            <div class="candidate-info">
+                <div class="candidate-details">
+                    <h2 id="candidateName"></h2>
+                    <p><strong>Father's Name:</strong> <span id="fatherName"></span></p>
+                    <p><strong>Mother's Name:</strong> <span id="motherName"></span></p>
+                </div>
+                <div class="candidate-photo">
+                    <img id="studentPhoto" src="" alt="Candidate Photo">
+                </div>
+            </div>
+
+            <div class="result-section">
+                <h3>JEE Advanced Result</h3>
+                <img id="resultImage" src="" alt="Result" class="result-image">
+            </div>
+
+            <div class="response-sheets">
+                <h3>Response Sheets</h3>
+                <div class="sheet-container">
+                    <div class="sheet-box">
+                        <h4>Paper 1</h4>
+                        <iframe id="p1Frame" src="" frameborder="0"></iframe>
+                    </div>
+                    <div class="sheet-box">
+                        <h4>Paper 2</h4>
+                        <iframe id="p2Frame" src="" frameborder="0"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
